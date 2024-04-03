@@ -12,6 +12,9 @@ public class Trainer {
 
     public void train() {
         List<Iris> trainingData = db.getTrainingData();
+        System.out.println("=======================================================================================");
+        System.out.println("\t\t\t\t\t\t\t\tTRAINING");
+        System.out.println("=======================================================================================");
 
         do {
             this.repeat = false;
@@ -20,6 +23,10 @@ public class Trainer {
                 if (perceptron.isRepeat()) this.repeat = true;
             }
         } while (this.repeat);
+
+        System.out.println("=======================================================================================");
+        System.out.println("\t\t\t\t\t\t\tFINISHED TRAINING");
+        System.out.println("=======================================================================================");
     }
 
 

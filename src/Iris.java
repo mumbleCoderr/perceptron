@@ -15,10 +15,12 @@ public class Iris {
         this.sepal_width = sepal_width;
         this.petal_length = petal_length;
         this.petal_width = petal_width;
-        this.attributes = Arrays.asList(sepal_length, sepal_width, petal_length, petal_width, 0d);
+        this.attributes = Arrays.asList(sepal_length, sepal_width, petal_length, petal_width, -1d);
         this.spec = spec;
-        if(spec.equals("Iris-setosa")) realOutput = 1;
-        else realOutput = 0;
+        if (spec != null) {
+            if (spec.equals("Iris-setosa")) setRealOutput(1);
+            else setRealOutput(0);
+        }
     }
 
     @Override
@@ -35,5 +37,9 @@ public class Iris {
 
     public int getRealOutput() {
         return realOutput;
+    }
+
+    public void setRealOutput(int realOutput) {
+        this.realOutput = realOutput;
     }
 }
