@@ -59,4 +59,20 @@ public class Database {
     public void loadInputData(Double sepal_length, Double sepal_width, Double petal_length, Double petal_width){
         inputData.add(new Iris(sepal_length, sepal_width, petal_length, petal_width, null));
     }
+
+    public List<Iris> getTrainingData() {
+        return trainingData;
+    }
+
+    public List<Iris> getTestingData() {
+        return testingData;
+    }
+
+    public List<Iris> getUserData() {
+        return userData;
+    }
+
+    public List<Iris> getInputData() {
+        return inputData;
+    }
 }

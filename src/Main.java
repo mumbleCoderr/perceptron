@@ -1,19 +1,27 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Database db = new Database();
+        Perceptron perceptron = new Perceptron(Arrays.asList(0.2,0.2,0.2,0.2,-1.), 0.3);
+        Trainer trainer = new Trainer(perceptron, db);
+
         Scanner scanner = new Scanner(System.in);
         db.loadMainData("Iris-setosa", "Iris-virginica");
         System.out.println("do you want to predict spec from your inserted data? [y/n]");
         String choose = scanner.nextLine();
+        boolean isRunning = false;
         while (!choose.equals("y") && !choose.equals("n")) {
             System.out.println("unknown command");
             System.out.println("do you want to predict spec from your inserted data? [y/n]");
             choose = scanner.nextLine();
         }
 
-        boolean isRunning = true;
+        trainer.train();
+
+        if (choose.equals("y")) isRunning = true;
+
         while (isRunning) {
             System.out.println("insert sepal_length");
             Double sepal_length = scanner.nextDouble();
